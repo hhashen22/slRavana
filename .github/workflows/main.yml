@@ -1,0 +1,24 @@
+yaml
+name: Deploy to Herok
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{HRKU-AAw191tBTMcXBPR9HUukIBH76UDdPMQymqftkMH2-eJw_____wOWrdrGRwv3 }}
+          heroku_app_name: "your-heroku-app-name"
+          heroku_email: "your-email@example.com"
